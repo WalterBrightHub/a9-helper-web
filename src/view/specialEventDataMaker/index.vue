@@ -4,10 +4,11 @@ import Clipboard from 'clipboard'
 import myAxios from '@/axios'
 
 import { useCarInfosStore } from '@/store/carInfos'
-import { useMessage } from 'naive-ui'
+import { CascaderOption, useMessage } from 'naive-ui'
+import { OnUpdateValue } from 'naive-ui/es/cascader/src/interface';
 
 const carInfosStore = useCarInfosStore()
-    const message = useMessage()
+const message = useMessage()
 
 const form = ref<SED>({
   havePack: true,
@@ -63,14 +64,27 @@ onMounted(() => {
     console.log(res)
     let glInfo: carInfo[] = res.data[0].data
     let alInfo: carInfo[] = res.data[1].data
-    let data = {
-      gl: getInfo(glInfo),
-      al: getInfo(alInfo),
-    }
-    // console.log(data)
-    carInfosStore.setCarids(data)
+
+
+    carInfosStore.setCarids({
+      gl: glInfo,
+      al: alInfo
+    })
+    console.log(carInfosStore.alOptions)
   })
 })
+
+const toolCarsValue = ref(null)
+//ref<CascaderOption []>([])
+const toolCarOptions =
+
+  onMounted(() => {
+
+  })
+
+const handleUpdateToolCarsValue: OnUpdateValue = (value, option, path) => {
+  console.log(value)
+}
 
 </script>
 
@@ -85,6 +99,11 @@ onMounted(() => {
     <n-input-number v-model:value="form.packConditions" :disabled="!form.havePackConditions" min="0" :precision="0">
     </n-input-number>
   </n-space>
+
+  <n-cascader v-model:value="toolCarsValue" multiple clearable placeholder="选择工具车" expand-trigger=" hover"
+    :options="carInfosStore.alOptions" :cascade="false" check-strategy="child" :show-path="false"
+    @update:value="handleUpdateToolCarsValue" />
+
   <n-input v-model:value="form.dataTableImage" type="text" placeholder="数据表图片地址" />
   <n-input :value="form.notes.join('\n')" :on-input="onInputNotes" type="textarea" placeholder="写点啥" />
   <n-button id="copy-sed-json" :data-clipboard-text="formJsonString">复制代码</n-button>
