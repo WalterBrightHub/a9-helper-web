@@ -25,4 +25,7 @@ const themeOverrides: GlobalThemeOverrides = {
 </template>
 
 <style>
+body{
+  font-size: 16px;
+}
 </style>
