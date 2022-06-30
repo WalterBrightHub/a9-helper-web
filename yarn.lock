@@ -86,6 +86,11 @@
   resolved "https://mirrors.tencent.com/npm/@types%2fnode/-/node-17.0.45.tgz#2c0fafd78705e7a18b7906b5201a522719dc5190"
   integrity sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==
 
+"@types/uuid@^8.3.4":
+  version "8.3.4"
+  resolved "https://mirrors.tencent.com/npm/@types%2fuuid/-/uuid-8.3.4.tgz#bd86a43617df0594787d38b735f55c805becf1bc"
+  integrity sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==
+
 "@vitejs/plugin-vue@^2.3.3":
   version "2.3.3"
   resolved "https://mirrors.tencent.com/npm/@vitejs%2fplugin-vue/-/plugin-vue-2.3.3.tgz#fbf80cc039b82ac21a1acb0f0478de8f61fbf600"
@@ -1014,6 +1019,11 @@ unplugin@^0.7.0:
     chokidar "^3.5.3"
     webpack-sources "^3.2.3"
     webpack-virtual-modules "^0.4.3"
+
+uuid@^8.3.2:
+  version "8.3.2"
+  resolved "https://mirrors.tencent.com/npm/uuid/-/uuid-8.3.2.tgz#80d5b5ced271bb9af6c445f21a1a04c606cefbe2"
+  integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==
 
 vdirs@^0.1.4, vdirs@^0.1.8:
   version "0.1.8"

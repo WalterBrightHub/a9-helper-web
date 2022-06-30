@@ -1,5 +1,10 @@
-interface toolCar {
-  "_id": string,
+
+interface UUID {
+  uuid: string,
+}
+
+interface SEToolCar {
+  "car_id": string,
   "fullName": string,
   "nickName": string,
   "isKeyCar": boolean,
@@ -7,40 +12,43 @@ interface toolCar {
   "star": number,
 }
 
-interface reword {
+interface reword extends UUID {
 
-  "type": string,
+  "type": "seCard" | "seKey" | "token" | "sePack" | "sePart" | "credit" | "seSkin",
   "count": number
 }
-interface processReword {
+
+type rewordType = reword['type']
+
+interface processReword extends UUID {
   "conditions": number,
   "reword": reword
 }
 
 interface join {
-  "freeTry": boolean,
   "star": number,
   "rank": number
 }
 
-interface toolCar{
-  car_id:string,
-  freeTry:boolean
+interface toolCar {
+  car_id: string,
+  freeTry: boolean
 }
 
-interface mission {
+interface mission extends UUID {
   toolCars: toolCar[],
   join: join,
-  conditions:number,
-  rewords:reword[]
+  conditions: number,
+  rewords: reword[]
 }
 
 
-interface stage {
-  clubRewords?: reword[],
+interface stage extends UUID {
+  clubRewords: reword[],
   unlockConditions: number,
   missions: mission[],
 }
+
 
 interface SED {
   havePack: Boolean,
@@ -50,7 +58,7 @@ interface SED {
   "haveEventKey": Boolean,
   "packConditions": Number,
   "dataTableImage": string,
-  "toolCars": toolCar[],
+  "toolCars": SEToolCar[],
   "notes": string[],
   "processRewords": processReword[],
   "stages": stage[]
